@@ -3,7 +3,7 @@ import GreetingComments from "./GreetingComments";
 
 function CompleteGreeting() {
   return (
-    <div className="greetingContainer">
+    <div className="mainContainer">
       <Greeting name="Mathias" />
       <GreetingComments numeration="first" />
       <Greeting name="React Learner" />

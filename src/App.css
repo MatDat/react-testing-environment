@@ -37,8 +37,51 @@
   }
 }
 
-.greetingContainer {
+.mainContainer {
   border: 2px solid black;
   padding: 10px;
   margin: 10px;
+}
+
+.headerContainer {
+  border: 2px solid black;
+  padding: 10px;
+  margin: 10px;
+  background-color: #7da1c4;
+  color: white;
+  text-transform: uppercase;
+}
+
+.menuStyle {
+  width: 100%;
+  background-color: #7da1c4;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.listItemStyle {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  color: white;
+}
+
+.listItemStyle li {
+  padding: 10px 25px;
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 10px;
+}
+
+li:hover {
+  background-color: #5c7f9c;
+  border-color: #3c5f7c;
+  transition: all 0.3s ease;
 }
