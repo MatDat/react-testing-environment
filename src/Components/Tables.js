@@ -63,7 +63,12 @@ const Tables = () => {
       <tbody>
         {dummyNames.map((name, rowIndex) => (
           <tr key={rowIndex}>
-            <td onClick={() => handleContractorClick(name)}>{name}</td>
+            <td
+              className="contractor-column"
+              onClick={() => handleContractorClick(name)}
+            >
+              {name}
+            </td>
             {weekDates.map((_, colIndex) => (
               <td
                 key={colIndex}

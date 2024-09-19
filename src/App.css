@@ -9,10 +9,10 @@ body {
 
 h1 {
   font-size: 40px;
-  color: #7da1c4;
+  color: #a4d65e;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0 #00509e, 1px -1px 0 #00509e, -1px 1px 0 #00509e,
-    1px 1px 0 #00509e;
+  text-shadow: -1px -1px 0 #7da1c4, 1px -1px 0 #7da1c4, -1px 1px 0 #7da1c4,
+    1px 1px 0 #7da1c4;
 }
 
 .App {
@@ -134,13 +134,16 @@ a:hover {
 .fullwidth-table td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: center;
   word-wrap: break-word; /* Handles long words */
 }
 
 .fullwidth-table th {
   background-color: #7da1c4;
   color: white;
+}
+.contractor-column {
+  background-color: #e7edf4; /* Change this to any color you like */
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
