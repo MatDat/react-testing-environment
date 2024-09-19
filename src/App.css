@@ -7,6 +7,14 @@ body {
   background-color: #e3f2f9;
 }
 
+h1 {
+  font-size: 40px;
+  color: #7da1c4;
+  text-transform: uppercase;
+  text-shadow: -1px -1px 0 #00509e, 1px -1px 0 #00509e, -1px 1px 0 #00509e,
+    1px 1px 0 #00509e;
+}
+
 .App {
   text-align: center;
 }
@@ -48,13 +56,12 @@ body {
 
 .headerTitle {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  font-size: 40px;
+  font-size: 50px;
   text-transform: capitalize;
   font-weight: bold;
 }
 
 .headerContainer {
-  width: 100%;
   padding: 45px 25px 30px 25px;
   background-color: #7da1c4;
   color: white;
@@ -62,11 +69,13 @@ body {
 
 .mainContainer {
   border: 2px solid #7da1c4;
-  padding: 10px;
+  padding: 0px 10px 10px 10px;
   margin: 10px;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  overflow-x: auto; /* Adds horizontal scrolling if needed */
 }
+
 .menuStyle {
   width: 100%;
   background-color: #6b8fb2;
@@ -88,11 +97,11 @@ body {
   box-sizing: border-box;
   cursor: pointer;
   width: 100%;
+  font-size: 16px;
 }
 
 .listItemStyle li a {
   display: block;
-  width: 100%;
   padding: 25px 25px 20px 25px;
   color: white;
   text-decoration: none;
@@ -113,4 +122,36 @@ li:hover a {
 a:hover {
   color: black;
   transition: all 0.3s ease;
+}
+
+.fullwidth-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* Adjusted for better content fitting */
+}
+
+.fullwidth-table th,
+.fullwidth-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+  word-wrap: break-word; /* Handles long words */
+}
+
+.fullwidth-table th {
+  background-color: #7da1c4;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .fullwidth-table th,
+  .fullwidth-table td {
+    padding: 4px; /* Reduce padding on smaller screens */
+    font-size: 14px; /* Adjust font size */
+  }
+
+  /* Add horizontal scroll for the table on small screens */
+  .mainContainer {
+    overflow-x: auto;
+  }
 }
