@@ -4,6 +4,7 @@ import Menu from "./Components/Menu";
 import Index from "./Components/Index";
 import CompleteGreeting from "./Components/PropsExample/CompleteGreeting";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProjectPlanner from "./Components/ProjectPlanner";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<Index />} />
+        <Route path="/projectPlanner" element={<ProjectPlanner />} />
         <Route path="/greeting" element={<CompleteGreeting />} />
         <Route path="/about" element={<h1>About Page</h1>} />
         <Route path="/services" element={<h1>Services Page</h1>} />
