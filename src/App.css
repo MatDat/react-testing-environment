@@ -9,10 +9,10 @@ body {
 
 h1 {
   font-size: 40px;
-  color: #a4d65e;
+  color: #c47d7e;
   text-transform: uppercase;
-  text-shadow: -1px -1px 0 #7da1c4, 1px -1px 0 #7da1c4, -1px 1px 0 #7da1c4,
-    1px 1px 0 #7da1c4;
+  text-shadow: -1px -1px 0 #733436, 1px -1px 0 #733436, -1px 1px 0 #733436,
+    1px 1px 0 #733436;
 }
 
 .App {
@@ -141,9 +141,21 @@ a:hover {
   background-color: #7da1c4;
   color: white;
 }
+
 .contractor-column {
   background-color: #e7edf4; /* Change this to any color you like */
   cursor: pointer;
+}
+
+.contractor-column.active {
+  background-color: #a84c4e;
+  color: white;
+  font-weight: bold;
+}
+
+.contractor-column:hover {
+  background-color: #c47d7e;
+  color: white;
 }
 
 @media (max-width: 768px) {
@@ -157,4 +169,14 @@ a:hover {
   .mainContainer {
     overflow-x: auto;
   }
+}
+.buttonBasic {
+  background-color: #7da1c4;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 10px;
 }

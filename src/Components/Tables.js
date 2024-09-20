@@ -64,7 +64,9 @@ const Tables = () => {
         {dummyNames.map((name, rowIndex) => (
           <tr key={rowIndex}>
             <td
-              className="contractor-column"
+              className={`contractor-column ${
+                selectedContractor === name ? "active" : ""
+              }`}
               onClick={() => handleContractorClick(name)}
             >
               {name}
