@@ -54,12 +54,14 @@ const Tables = () => {
     <table className="fullwidth-table">
       <thead>
         <tr>
-          <th>Contractors</th>
+          <th className="contractor-header">Contractors</th>{" "}
+          {/* Add this class */}
           {weekDates.map((date, index) => (
             <th key={index}>{date}</th>
           ))}
         </tr>
       </thead>
+
       <tbody>
         {dummyNames.map((name, rowIndex) => (
           <tr key={rowIndex}>
