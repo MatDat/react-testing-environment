@@ -19,7 +19,7 @@ const Menu = () => {
           <Link to="/about">About</Link>
         </li>
         <li>
-          <Link to="/services">Services</Link>
+          <Link to="/blapper">Page Not Found Test</Link>
         </li>
         <li>
           <Link to="/contact">Contact</Link>
