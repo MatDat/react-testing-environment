@@ -5,7 +5,7 @@ const Header = () => {
     <div className="headerContainer">
       <div className="headerTitle">
         <a className="titleLinkStyling" href="/">
-          The big fancy SRM system
+          The new big fancy SRM system
         </a>
       </div>
     </div>

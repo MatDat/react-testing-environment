@@ -82,7 +82,7 @@ const Tables = () => {
       });
     } else {
       setPopupMessage(
-        "You can only place the selected contractor in their own row."
+        "You may only place the contractor in their designated row."
       );
       setShowPopup(true);
     }

@@ -20,11 +20,11 @@ const ProjectPlanner = () => {
     <div className="mainContainer">
       <h1>The Project Planner</h1>
 
+      <Tables />
+
       <Button className="buttonBasic" onClick={handleAddContractorClick}>
         Add Contractor
       </Button>
-
-      <Tables />
 
       {showPopup && ( //* Render the Popup conditionally
         <Popup message={popupMessage} onClose={handleClosePopup} />
