@@ -33,10 +33,20 @@ const getWeekNumber = (date) => {
 // Function to get week dates based on the week offset
 const getWeekDates = (weekOffset = 0) => {
   const current = new Date();
-  const first = current.getDate() - current.getDay() + 1 + weekOffset * 7; // Get Monday with week offset
+  const currentDay = current.getDay(); // 0 for Sunday, 1 for Monday, ..., 6 for Saturday
+  const firstDayOfWeek = new Date(
+    current.setDate(
+      current.getDate() -
+        currentDay +
+        (currentDay === 0 ? -6 : 1) +
+        weekOffset * 7
+    )
+  );
+  // Cloning the date object to avoid mutation
   const dates = [];
   for (let i = 0; i < 5; i++) {
-    const date = new Date(current.setDate(first + i));
+    const date = new Date(firstDayOfWeek);
+    date.setDate(firstDayOfWeek.getDate() + i);
     dates.push(
       `${date.toLocaleDateString("en-GB", {
         weekday: "long",

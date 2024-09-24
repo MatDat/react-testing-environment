@@ -4,14 +4,13 @@ import "../Popup.css";
 const Popup = ({ message, onClose }) => {
   const popupRef = useRef(null);
 
-  // Handle click outside the popup box
-  const handleClickOutside = (event) => {
-    if (popupRef.current && !popupRef.current.contains(event.target)) {
-      onClose(); // Close popup if clicked outside
-    }
-  };
-
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (popupRef.current && !popupRef.current.contains(event.target)) {
+        onClose(); // Close popup if clicked outside
+      }
+    };
+
     // Add event listener when the component mounts
     document.addEventListener("mousedown", handleClickOutside);
 
@@ -19,7 +18,7 @@ const Popup = ({ message, onClose }) => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, []);
+  }, [onClose]); // Only re-run if onClose changes
 
   return (
     <div className="popup-overlay">
