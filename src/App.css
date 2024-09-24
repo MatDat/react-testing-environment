@@ -155,6 +155,10 @@ a:hover {
   color: white;
 }
 
+.highlighted-row {
+  background-color: #f5eaea;
+}
+
 .contractor-column {
   background-color: #e7edf4; /* Change this to any color you like */
   cursor: pointer;
@@ -207,6 +211,23 @@ a:hover {
 .buttonBasic:hover {
   background-color: #a4d65e;
   color: black;
-  border: 1px solid black;
+  border: 1px solid #7da1c4;
   transition: all 0.3s ease;
+}
+.weekButton {
+  font-size: 14px;
+  padding: 0px 10px 3px 10px;
+  color: white;
+  background-color: #7da1c4;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.weekButton:hover {
+  background-color: #a4d65e;
+  color: black;
+  border: 1px solid black;
+  transition: all 0.1s ease;
 }
