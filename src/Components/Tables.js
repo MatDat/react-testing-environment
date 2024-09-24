@@ -49,14 +49,18 @@ const getWeekDates = (weekOffset = 0) => {
 
 const Tables = () => {
   const [selectedContractor, setSelectedContractor] = useState(null);
-  const [tableData, setTableData] = useState(
-    testContractors.map(() => Array(5).fill(""))
-  );
+  const [tableData, setTableData] = useState({});
   const [weekOffset, setWeekOffset] = useState(0);
   const [popupMessage, setPopupMessage] = useState(""); // State for popup message
   const [showPopup, setShowPopup] = useState(false); // State to show/hide popup
 
   const weekDates = getWeekDates(weekOffset);
+  const currentWeekNumber = getWeekNumber(new Date()) + weekOffset;
+
+  // Initialize table data for the current week if it doesn't exist
+  if (!tableData[currentWeekNumber]) {
+    tableData[currentWeekNumber] = testContractors.map(() => Array(5).fill(""));
+  }
 
   const handleContractorClick = (name) => {
     setSelectedContractor(name);
@@ -71,8 +75,9 @@ const Tables = () => {
 
     if (testContractors[rowIndex] === selectedContractor) {
       setTableData((prevData) => {
-        const newData = [...prevData];
-        newData[rowIndex][colIndex] = selectedContractor;
+        const newData = { ...prevData };
+        newData[currentWeekNumber] = [...prevData[currentWeekNumber]];
+        newData[currentWeekNumber][rowIndex][colIndex] = selectedContractor;
         return newData;
       });
     } else {
@@ -109,9 +114,7 @@ const Tables = () => {
         <button className="weekButton" onClick={handlePrevWeek}>
           ⬅
         </button>
-        <span style={{ padding: "0 5px" }}>
-          Week {getWeekNumber(new Date()) + weekOffset}
-        </span>
+        <span style={{ padding: "0 5px" }}>Week {currentWeekNumber}</span>
         <button className="weekButton" onClick={handleNextWeek}>
           ➡
         </button>
@@ -147,7 +150,7 @@ const Tables = () => {
                   onClick={() => handleCellClick(rowIndex, colIndex)}
                   style={{ cursor: "pointer", textAlign: "center" }}
                 >
-                  {tableData[rowIndex][colIndex]}
+                  {tableData[currentWeekNumber]?.[rowIndex]?.[colIndex] || ""}
                 </td>
               ))}
             </tr>
