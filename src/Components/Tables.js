@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import Popup from "./Popup"; // Import the Popup component
 
-const dummyNames = [
+const testContractors = [
   "Lars Larsens Gulvmænd",
   "Mikkel Mikkelsen Byg",
   "Søren Sørensen Tømrer",
@@ -13,7 +14,7 @@ const dummyNames = [
   "Erik Eriksen Stukkatør",
 ];
 
-//* Helper function to get week number
+// Helper function to get week number
 const getWeekNumber = (date) => {
   const newDate = new Date(date.getTime());
   newDate.setHours(0, 0, 0, 0);
@@ -30,9 +31,10 @@ const getWeekNumber = (date) => {
   );
 };
 
+// Function to get week dates based on the week offset
 const getWeekDates = (weekOffset = 0) => {
   const current = new Date();
-  const first = current.getDate() - current.getDay() + 1 + weekOffset * 7; //* Get Monday with week offset
+  const first = current.getDate() - current.getDay() + 1 + weekOffset * 7; // Get Monday with week offset
   const dates = [];
   for (let i = 0; i < 5; i++) {
     const date = new Date(current.setDate(first + i));
@@ -48,9 +50,11 @@ const getWeekDates = (weekOffset = 0) => {
 const Tables = () => {
   const [selectedContractor, setSelectedContractor] = useState(null);
   const [tableData, setTableData] = useState(
-    dummyNames.map(() => Array(5).fill(""))
+    testContractors.map(() => Array(5).fill(""))
   );
   const [weekOffset, setWeekOffset] = useState(0);
+  const [popupMessage, setPopupMessage] = useState(""); // State for popup message
+  const [showPopup, setShowPopup] = useState(false); // State to show/hide popup
 
   const weekDates = getWeekDates(weekOffset);
 
@@ -60,18 +64,22 @@ const Tables = () => {
 
   const handleCellClick = (rowIndex, colIndex) => {
     if (!selectedContractor) {
-      alert("Please select a contractor first.");
+      setPopupMessage("Please select a contractor first.");
+      setShowPopup(true);
       return;
     }
 
-    if (dummyNames[rowIndex] === selectedContractor) {
+    if (testContractors[rowIndex] === selectedContractor) {
       setTableData((prevData) => {
         const newData = [...prevData];
         newData[rowIndex][colIndex] = selectedContractor;
         return newData;
       });
     } else {
-      alert("You can only place the selected contractor in their own row.");
+      setPopupMessage(
+        "You can only place the selected contractor in their own row."
+      );
+      setShowPopup(true);
     }
   };
 
@@ -81,6 +89,10 @@ const Tables = () => {
 
   const handleNextWeek = () => {
     setWeekOffset((prev) => prev + 1);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
   };
 
   return (
@@ -116,7 +128,7 @@ const Tables = () => {
         </thead>
 
         <tbody>
-          {dummyNames.map((name, rowIndex) => (
+          {testContractors.map((name, rowIndex) => (
             <tr
               key={rowIndex}
               className={selectedContractor === name ? "highlighted-row" : ""}
@@ -142,6 +154,8 @@ const Tables = () => {
           ))}
         </tbody>
       </table>
+
+      {showPopup && <Popup message={popupMessage} onClose={closePopup} />}
     </div>
   );
 };

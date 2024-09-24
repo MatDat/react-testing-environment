@@ -206,13 +206,13 @@ a:hover {
   font-size: 16px;
   margin: 10px;
   border: 1px solid black;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 .buttonBasic:hover {
   background-color: #a4d65e;
   color: black;
-  border: 1px solid #7da1c4;
-  transition: all 0.3s ease;
+  border: 1px solid black;
+  transition: all 0.2s ease;
 }
 .weekButton {
   font-size: 14px;
