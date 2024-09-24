@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Popup from "./Popup"; // Import the Popup component
-
+import Popup from "./Popup";
 const testContractors = [
   "Lars Larsens Gulvmænd",
   "Mikkel Mikkelsen Byg",
@@ -63,7 +62,7 @@ const Tables = () => {
   }
 
   const handleContractorClick = (name) => {
-    setSelectedContractor(name);
+    setSelectedContractor((prev) => (prev === name ? null : name));
   };
 
   const handleCellClick = (rowIndex, colIndex) => {
