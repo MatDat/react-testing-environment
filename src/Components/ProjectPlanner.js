@@ -1,15 +1,20 @@
 import React, { useState } from "react";
 import Tables from "./Tables";
 import Button from "./Button";
-import Popup from "./Popup"; //* Import the Popup component
+import Popup from "./Popup";
 
 const ProjectPlanner = () => {
   const [showPopup, setShowPopup] = useState(false); //* State to manage popup visibility
   const [popupMessage, setPopupMessage] = useState(""); //* State to manage the popup message
 
   const handleAddContractorClick = () => {
-    setPopupMessage("Functionality not implemented yet."); //* Set the popup message
-    setShowPopup(true);
+    setPopupMessage("Functionality not implemented yet."); //* Sets the popup message for the addContractor button
+    setShowPopup(true); //* Determines when it should Show the popup
+  };
+
+  const testClick = () => {
+    setPopupMessage("Test Succesfull!"); //* Sets the popup message for the test button
+    setShowPopup(true); //* Determines when it should Show the popup
   };
 
   const handleClosePopup = () => {
@@ -26,7 +31,11 @@ const ProjectPlanner = () => {
         Add Contractor
       </Button>
 
-      {showPopup && ( //* Render the Popup conditionally
+      <Button className="buttonBasic" onClick={testClick}>
+        Test Button
+      </Button>
+
+      {showPopup && ( //* Conditionally renders the Popup based on showPopup state.
         <Popup message={popupMessage} onClose={handleClosePopup} />
       )}
     </div>
