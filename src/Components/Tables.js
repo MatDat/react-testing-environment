@@ -105,6 +105,10 @@ const Tables = () => {
     setWeekOffset((prev) => prev + 1);
   };
 
+  const handleCurrentWeek = () => {
+    setWeekOffset(0);
+  };
+
   const closePopup = () => {
     setShowPopup(false);
   };
@@ -120,6 +124,9 @@ const Tables = () => {
           paddingBottom: "10px",
         }}
       >
+        <button className="weekButtonCurrent" onClick={handleCurrentWeek}>
+          This Week
+        </button>
         <button className="weekButton" onClick={handlePrevWeek}>
           ⬅
         </button>
@@ -128,7 +135,6 @@ const Tables = () => {
           ➡
         </button>
       </div>
-
       <table className="fullwidth-table">
         <thead>
           <tr>
@@ -166,8 +172,8 @@ const Tables = () => {
           ))}
         </tbody>
       </table>
-
-      {showPopup && <Popup message={popupMessage} onClose={closePopup} />}
+      {showPopup && <Popup message={popupMessage} onClose={closePopup} />}{" "}
+      {/* Conditionally render the popup */}
     </div>
   );
 };

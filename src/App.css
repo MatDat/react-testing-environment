@@ -231,3 +231,21 @@ a:hover {
   border: 1px solid black;
   transition: all 0.1s ease;
 }
+.weekButtonCurrent {
+  font-size: 14px;
+  padding: 5px 10px 1px 10px;
+  margin-right: 10px;
+  color: white;
+  background-color: #7da1c4;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.weekButtonCurrent:hover {
+  background-color: #a4d65e;
+  color: black;
+  border: 1px solid black;
+  transition: all 0.1s ease;
+}
