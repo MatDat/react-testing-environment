@@ -76,7 +76,10 @@ const Tables = () => {
   };
 
   const handleCellClick = (rowIndex, colIndex) => {
-    if (!selectedContractor) {
+    // Get the current cell value
+    const currentCellValue = tableData[currentWeekNumber][rowIndex][colIndex];
+
+    if (!selectedContractor && currentCellValue === "") {
       setPopupMessage("Please select a contractor first.");
       setShowPopup(true);
       return;
@@ -86,7 +89,11 @@ const Tables = () => {
       setTableData((prevData) => {
         const newData = { ...prevData };
         newData[currentWeekNumber] = [...prevData[currentWeekNumber]];
-        newData[currentWeekNumber][rowIndex][colIndex] = selectedContractor;
+
+        // Toggle contractor: if the cell already contains the selected contractor, remove it; otherwise, assign it
+        newData[currentWeekNumber][rowIndex][colIndex] =
+          currentCellValue === selectedContractor ? "" : selectedContractor;
+
         return newData;
       });
     } else {
@@ -125,7 +132,7 @@ const Tables = () => {
         }}
       >
         <button className="weekButtonCurrent" onClick={handleCurrentWeek}>
-          This Week
+          Today
         </button>
         <button className="weekButton" onClick={handlePrevWeek}>
           ⬅

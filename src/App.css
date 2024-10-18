@@ -19,41 +19,6 @@ h1 {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .headerTitle {
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   font-size: 50px;
@@ -136,18 +101,56 @@ a:hover {
 .fullwidth-table {
   width: 100%;
   border-collapse: collapse;
-  table-layout: auto; /* Adjusted for better content fitting */
+  table-layout: auto;
 }
 
 .fullwidth-table th,
 .fullwidth-table td {
   border: 1px solid #a0a0a0;
   padding: 8px;
-  word-wrap: break-word; /* Handles long words */
+  word-wrap: break-word;
 }
 
+/* Hover effect for the entire row */
+.fullwidth-table tr:hover {
+  background-color: #f5e9e9; /* Lighter hover color for row */
+}
+
+/* Darker hover effect for the hovered cell */
 .fullwidth-table td:not(.contractor-column):hover {
-  background-color: #f4e7e7;
+  background-color: #dcb3b4; /* Darker hover color for the specific cell */
+}
+
+/* Highlight the contractor column when the row is hovered */
+.fullwidth-table tr:hover .contractor-column {
+  background-color: #e3c0c1;
+  color: black;
+}
+
+/* Highlight today's column */
+.fullwidth-table td.today {
+  background-color: lightgray;
+}
+
+/* Contractor column styles */
+.contractor-column {
+  background-color: #e7edf4;
+  cursor: pointer;
+}
+
+.contractor-column.active {
+  background-color: #a84c4e;
+  color: white;
+}
+
+.contractor-column:hover {
+  background-color: #c47d7e;
+}
+
+/* Add a class for when a contractor is selected */
+.contractor-column.selected {
+  background-color: #a84c4e; /* The initial background color for selected contractors */
+  color: white;
 }
 
 .fullwidth-table th {
@@ -155,28 +158,8 @@ a:hover {
   color: white;
 }
 
-.highlighted-row {
-  background-color: #f5eaea;
-}
-
-.contractor-column {
-  background-color: #e7edf4; /* Change this to any color you like */
-  cursor: pointer;
-}
-
-.contractor-column.active {
-  background-color: #a84c4e;
-  color: white;
-  font-weight: bold;
-}
-
-.contractor-column:hover {
-  background-color: #c47d7e;
-  color: white;
-}
-
 .fullwidth-table th.contractor-header {
-  background-color: #a84c4e; /* New background color */
+  background-color: #a84c4e;
   color: white;
   font-weight: bold;
   font-size: 18px;
@@ -184,18 +167,20 @@ a:hover {
   border: 1px solid black;
 }
 
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
   .fullwidth-table th,
   .fullwidth-table td {
-    padding: 4px; /* Reduce padding on smaller screens */
-    font-size: 14px; /* Adjust font size */
+    padding: 4px;
+    font-size: 14px;
   }
 
-  /* Add horizontal scroll for the table on small screens */
   .mainContainer {
     overflow-x: auto;
   }
 }
+
+/* Button styles */
 .buttonBasic {
   background-color: #7da1c4;
   color: white;
@@ -208,12 +193,14 @@ a:hover {
   border: 1px solid black;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.08);
 }
+
 .buttonBasic:hover {
   background-color: #a4d65e;
   color: black;
   border: 1px solid black;
   transition: all 0.2s ease;
 }
+
 .weekButton {
   font-size: 14px;
   padding: 0px 10px 3px 10px;
@@ -231,6 +218,7 @@ a:hover {
   border: 1px solid black;
   transition: all 0.1s ease;
 }
+
 .weekButtonCurrent {
   font-size: 14px;
   padding: 5px 10px 1px 10px;
