@@ -111,25 +111,25 @@ a:hover {
   word-wrap: break-word;
 }
 
-/* Hover effect for the entire row */
+/* Hover effect for the entire row when the contractor is selected */
+.fullwidth-table tr:hover.highlighted-row {
+  background-color: #daeebc;
+}
+
+/* Lighter hover color for unselected rows */
 .fullwidth-table tr:hover {
-  background-color: #f5e9e9; /* Lighter hover color for row */
+  background-color: #f5f5f5;
 }
 
 /* Darker hover effect for the hovered cell */
 .fullwidth-table td:not(.contractor-column):hover {
-  background-color: #dcb3b4; /* Darker hover color for the specific cell */
+  background-color: #dcb3b4;
 }
 
 /* Highlight the contractor column when the row is hovered */
 .fullwidth-table tr:hover .contractor-column {
   background-color: #e3c0c1;
   color: black;
-}
-
-/* Highlight today's column */
-.fullwidth-table td.today {
-  background-color: lightgray;
 }
 
 /* Contractor column styles */
@@ -144,12 +144,12 @@ a:hover {
 }
 
 .contractor-column:hover {
-  background-color: #c47d7e;
+  background-color: #b25556;
 }
 
 /* Add a class for when a contractor is selected */
 .contractor-column.selected {
-  background-color: #a84c4e; /* The initial background color for selected contractors */
+  background-color: #a84c4e;
   color: white;
 }
 

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Popup from "./Popup";
+
 const testContractors = [
   "Lars Larsens Gulvmænd",
   "Mikkel Mikkelsen Byg",
@@ -166,15 +167,27 @@ const Tables = () => {
               >
                 {name}
               </td>
-              {weekDates.map((_, colIndex) => (
-                <td
-                  key={colIndex}
-                  onClick={() => handleCellClick(rowIndex, colIndex)}
-                  style={{ cursor: "pointer", textAlign: "center" }}
-                >
-                  {tableData[currentWeekNumber]?.[rowIndex]?.[colIndex] || ""}
-                </td>
-              ))}
+              {weekDates.map((_, colIndex) => {
+                const isToday = new Date().getDay() === colIndex; // Check if this column index corresponds to today
+                const isCellOccupied =
+                  tableData[currentWeekNumber]?.[rowIndex]?.[colIndex];
+
+                return (
+                  <td
+                    key={colIndex}
+                    onClick={() => handleCellClick(rowIndex, colIndex)}
+                    className={`${isToday ? "today" : ""} ${
+                      selectedContractor && !isCellOccupied ? "hoverable" : ""
+                    }`}
+                    style={{
+                      cursor: "pointer",
+                      textAlign: "center",
+                    }}
+                  >
+                    {tableData[currentWeekNumber]?.[rowIndex]?.[colIndex] || ""}
+                  </td>
+                );
+              })}
             </tr>
           ))}
         </tbody>
